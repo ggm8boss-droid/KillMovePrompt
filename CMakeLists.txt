@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.21)
 
 project(KillMovePrompt VERSION 0.1.0 LANGUAGES CXX)
 
+find_package(directxmath CONFIG REQUIRED)
+find_package(directxtk CONFIG REQUIRED)
 find_package(CommonLibSSE CONFIG REQUIRED)
 find_path(SkyPromptAPI_INCLUDE_DIRS "SkyPrompt/API.hpp")
 
