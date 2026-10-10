@@ -1,0 +1,27 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": { "major": 3, "minor": 21, "patch": 0 },
+    "configurePresets": [
+        {
+            "name": "release",
+            "displayName": "Release (MSVC)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/release",
+            "architecture": { "value": "x64", "strategy": "external" },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "CMAKE_CXX_FLAGS": "/permissive- /Zc:preprocessor /EHsc /MP",
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-windows-skse",
+                "VCPKG_HOST_TRIPLET": "x64-windows-skse",
+                "VCPKG_OVERLAY_TRIPLETS": "${sourceDir}/cmake",
+                "VCPKG_OVERLAY_PORTS": "${sourceDir}/cmake/ports",
+                "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL"
+            }
+        }
+    ],
+    "buildPresets": [
+        { "name": "release", "configurePreset": "release" }
+    ]
+}
